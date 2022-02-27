@@ -1,0 +1,22 @@
+const { MessageEmbed } = require('discord.js');
+
+module.exports = {
+    name: "bug",
+    category: "moderation",
+  run : async(client, message, args) => { 
+
+
+
+  // again make this fit your command handler style 😀
+    if (!args[0]) return message.reply("لطفا باگ خود را بنویسید`");   
+    if (args[0] === "bug") return message.reply("لطفا باگ خود را بنویسید");   
+    args = args.join(" ")
+    message.reply("**!...با سلام از گزارش شما متشکریم به زودی اشکال بر طرف میشه**").then(msg => {
+
+      msg.react('✅')
+
+    })
+    const content = `**Reported Bug from : ${message.author.username}#${message.author.discriminator}** \n~~--------------------------------~~\n **Reason Message** :${args}\n~~--------------------------------~~\n **Lotfan Peygiri Konid <@&914454128372092968> **`;   
+    client.channels.cache.get('933723739873488906').send(content)
+  }
+  }
